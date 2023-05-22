@@ -10,6 +10,9 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.json())
 
+const blog = require('./routes/blogRoutes.js')
+app.use('/blog', blog)
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
