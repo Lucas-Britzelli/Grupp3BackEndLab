@@ -42,7 +42,7 @@ router.delete('/remove', async (req, res) => {
 })
 router.put('/update', async (req, res) => {
     try {
-        const { blogId, ...UpdatedData } = req.body
+        const { _id, ...UpdatedData } = req.body
 
         let blogUpdateReponse = await db.updateOne(blogId, UpdatedData)
         res.json(blogUpdateReponse)
