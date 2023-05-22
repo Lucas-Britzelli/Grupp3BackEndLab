@@ -7,16 +7,16 @@ const client = new MongoClient(connectionStr)
 const db = client.db('Blogg')
 const collection = db.collection('BloggPosts')
 const Blog = require('./models/blogModel')
-
+client.connect()
 async function GetAll() {
     let data = await collection.find().toArray()
     return data
 }
 
 async function addPost(data) {
-    const Blogpost = new Blog(data)
-    const result = await collection.insertOne(Blogpost)
+    const blog = new Blog(data)
+    const result = await collection.insertOne(blog)
     return result
 }
 
-module.exports = {GetAll, addPost}
+module.exports = { GetAll, addPost }
