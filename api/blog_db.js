@@ -5,8 +5,8 @@ const connection = 'mongodb+srv://Lucas:LuTFQVwWh2U9Dcer@grupp3labcluster.wa4jd6
 module.exports = () => {
     return mongoose.connect(connection)
 }
-async function GetBlog(){
+async function GetAll(){
     Blog.find().then(data => res.send(data)).catch(err => console.log(err))
 }
 
-module.exports = GetBlog
+module.exports = GetAll

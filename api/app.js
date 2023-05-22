@@ -10,12 +10,14 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.json())
 
-// const blogRouter = require('./routes/blogRoutes')
-// app.use('/blog', blogRouter)
+const blogRouter = require('./routes/blogRoutes')
+app.use('/blog', blogRouter)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
-connectDB().then(()=>{
-    console.log('db connection succeeded')
-}).catch(err => console.log(err))
+connectDB()
+    .then(() => {
+        console.log('db connection succeeded')
+    })
+    .catch((err) => console.log(err))

@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const ArticleLength = require('../service/ArticleSize')
 
-const db = require('../blogg_db')
+const db = require('../blog_db')
 
 router.post('/ArticleLength', async (req, res) => {
     try {
