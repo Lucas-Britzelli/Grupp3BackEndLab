@@ -1,4 +1,3 @@
-const mongoose = require('mongoose')
 const { MongoClient, ObjectId } = require('mongodb')
 
 const connectionStr =

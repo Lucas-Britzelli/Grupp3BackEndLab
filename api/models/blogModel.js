@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
 
-const BlogPostsSchema = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
     userName: String,
     content: String,
+    comments: Number,
     createdAt: {
         type: Date,
         default: Date.now
-    },
-    comments: Number
+    }
 })
 
-
-module.exports = mongoose.model('Blog', BlogPostsSchema)
+module.exports = mongoose.model('Blog', blogSchema)
