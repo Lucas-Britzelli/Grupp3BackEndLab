@@ -4,7 +4,7 @@ const controller = require('../controllers/blogController')
 
 router.get('/search', async (req, res) => {
     try {
-        const result = await controller.searchBlog(req.query)
+        const result = await controller.getBlog(req.query)
         res.json(result)
     } catch (error) {
         res.status(500).json({ message: error.message })
