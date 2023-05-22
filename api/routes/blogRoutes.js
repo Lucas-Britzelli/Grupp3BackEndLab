@@ -24,8 +24,8 @@ router.get('/all', async (req, res) => {
 
 router.post('/add', async (req, res) => {
     try {
-        const data = await db.addPost()
-        const result = await db.addPost(req.body)
+        const data = req.body
+        const result = await db.addPost(data)
         return res.json(result)
     } catch (err) {
         res.status(500).json({ message: err.message })
