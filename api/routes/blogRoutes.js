@@ -15,8 +15,8 @@ router.post('/ArticleLength', async (req, res) => {
 
 router.get('/all', async (req, res) => {
     try {
-        const posts = await db.getAll()
-        res.json(posts)
+        let data = await db.GetAll()
+        return res.json(data)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
