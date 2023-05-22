@@ -26,7 +26,7 @@ router.post('/add', async (req, res) => {
     try {
         const data = req.body
         const result = await db.addPost(data)
-        return res.json(result)
+        res.json(result)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
