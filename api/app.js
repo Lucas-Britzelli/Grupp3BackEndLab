@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.json())
 
-const blog = require('./routes/blogRoutes.js')
+const blog = require('./routes/blogRoutes')
 app.use('/blog', blog)
 
 app.listen(PORT, () => {

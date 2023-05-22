@@ -51,4 +51,4 @@ router.put('/update', async (req, res) => {
     }
 })
 
-module.eports = router
+module.exports = router
