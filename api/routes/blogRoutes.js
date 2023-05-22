@@ -24,17 +24,17 @@ router.get('/all', async (req, res) => {
 
 router.post('/add', async (req, res) => {
     try {
-        const post = await db.addPost(req.body)
-        res.json(post)
+        const data = await db.addPost()
+        return res.json(data)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
 })
 
 router.delete('/remove', async (req, res) => {
-    let blogId = req.body.blogId
+    let _id = req.body._id
     try {
-        await db.deleteOne(blogId)
+        await db.deleteOne(_id)
         res.sendStatus(200)
     } catch (err) {
         res.status(500).json({ message: err.message })
