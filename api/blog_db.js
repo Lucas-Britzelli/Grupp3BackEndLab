@@ -18,4 +18,10 @@ async function addPost(data) {
     return result
 }
 
-module.exports = { GetAll, addPost }
+async function deleteOne(_id) {
+    let result = await collection.deleteOne({ _id: new ObjectId(_id) })
+    return result
+}
+
+
+module.exports = { GetAll, addPost, deleteOne }
