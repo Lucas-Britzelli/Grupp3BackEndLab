@@ -6,8 +6,9 @@ const db = require('../blog_db.js')
 
 router.post('/ArticleLength', async (req, res) => {
     try {
-        const article = await ArticleLength(req.body)
-        res.json(article)
+        const articleText = req.body.content // Antagande: Artikeltexten finns i 'content'-fältet i request body
+        const result = await ArticleLength(articleText)
+        res.json(result)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
