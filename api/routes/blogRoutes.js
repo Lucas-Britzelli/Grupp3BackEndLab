@@ -5,10 +5,9 @@ const ArticleLength = require('../service/ArticleSize')
 const db = require('../blog_db.js')
 
 router.post('/ArticleLength', async (req, res) => {
+    const articleText = req.body.content
     try {
-        const articleText = req.body.content // Antagande: Artikeltexten finns i 'content'-fältet i request body
-        const result = await ArticleLength(articleText)
-        res.json(result)
+        return res.send(ArticleLength(articleText))
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
@@ -47,7 +46,7 @@ router.put('/update', async (req, res) => {
     try {
         const { _id, ...UpdatedData } = req.body
 
-        let blogUpdateReponse = await db.updateOne(blogId, UpdatedData)
+        let blogUpdateReponse = await db.updateOne(_id, UpdatedData)
         res.json(blogUpdateReponse)
     } catch (err) {
         res.status(500).json({ message: err.message })

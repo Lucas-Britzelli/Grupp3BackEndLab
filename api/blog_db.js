@@ -22,6 +22,17 @@ async function deleteOne(_id) {
     let result = await collection.deleteOne({ _id: new ObjectId(_id) })
     return result
 }
+async function updateOne(_id, data) {
+    if (!(_id && data)) {
+        throw 'You can not update a blog without an id or data'
+    }
 
+    return await collection.updateOne(
+        { _id: new ObjectId(_id) },
+        {
+            $set: data
+        }
+    )
+}
 
-module.exports = { GetAll, addPost, deleteOne }
+module.exports = { GetAll, addPost, updateOne, deleteOne }
